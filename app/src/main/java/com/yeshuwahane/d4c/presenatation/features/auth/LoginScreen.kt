@@ -87,7 +87,7 @@ fun LoginScreen(
                     .fillMaxWidth()
                     .wrapContentHeight(Alignment.Bottom)
             )
-        }
+        },
     ) { paddingValues ->
         Box(
             modifier = Modifier
