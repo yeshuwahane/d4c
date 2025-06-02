@@ -1,5 +1,7 @@
 # D4C Final Android Assignment - OTP Login, Product Listing & Ticket Creation App
 
+![B4C](https://raw.githubusercontent.com/yeshuwahane/d4c/refs/heads/main/screeenshots/b4c.png)
+
 This is the final submission for the D4C Android assignment. The project demonstrates a complete flow of OTP-based user authentication, product browsing, and support ticket creation with optional image upload.
 
 ---
