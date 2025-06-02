@@ -1,9 +1,7 @@
-package com.yeshuwahane.d4c.presenatation.shops
+package com.yeshuwahane.d4c.presenatation.features.shops
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yeshuwahane.d4c.data.mapper.toUiModel
 import com.yeshuwahane.d4c.data.utils.DataResource
 import com.yeshuwahane.d4c.data.utils.TokenManager
 import com.yeshuwahane.d4c.domain.repository.ProductRepository

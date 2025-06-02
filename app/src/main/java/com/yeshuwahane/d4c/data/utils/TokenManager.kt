@@ -15,6 +15,10 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 
+
+
+
+
 @Singleton
 class TokenManager @Inject constructor(
     @ApplicationContext private val context: Context
@@ -31,12 +35,14 @@ class TokenManager @Inject constructor(
     )
 
     suspend fun saveTokens(jwt: String, refreshToken: String, isExistingUser: Boolean) {
-        dataStore.edit { prefs ->
-            prefs[JWT_TOKEN] = jwt
-            prefs[REFRESH_TOKEN] = refreshToken
-            prefs[IS_EXISTING_USER] = isExistingUser
+        println("🔐 TokenManager - Saving JWT: $jwt")
+        dataStore.edit { preferences ->
+            preferences[JWT_TOKEN] = jwt
+            preferences[REFRESH_TOKEN] = refreshToken
+            preferences[IS_EXISTING_USER] = isExistingUser
         }
     }
+
 
     val jwtTokenFlow: Flow<String?> = dataStore.data.map { it[JWT_TOKEN] }
     val refreshTokenFlow: Flow<String?> = dataStore.data.map { it[REFRESH_TOKEN] }

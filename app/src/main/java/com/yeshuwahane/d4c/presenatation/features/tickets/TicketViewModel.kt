@@ -1,4 +1,4 @@
-package com.yeshuwahane.d4c.presenatation.tickets
+package com.yeshuwahane.d4c.presenatation.features.tickets
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

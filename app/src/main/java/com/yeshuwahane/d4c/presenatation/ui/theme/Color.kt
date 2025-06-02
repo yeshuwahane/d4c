@@ -1,4 +1,4 @@
-package com.yeshuwahane.d4c.ui.theme
+package com.yeshuwahane.d4c.presenatation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

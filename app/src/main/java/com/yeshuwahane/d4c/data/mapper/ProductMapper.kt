@@ -1,7 +1,7 @@
 package com.yeshuwahane.d4c.data.mapper
 
 import com.yeshuwahane.d4c.data.dto.product.ProductData
-import com.yeshuwahane.d4c.presenatation.shops.Product
+import com.yeshuwahane.d4c.presenatation.features.shops.Product
 
 
 fun ProductData.toUiModel(): Product {

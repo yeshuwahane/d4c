@@ -1,4 +1,4 @@
-package com.yeshuwahane.d4c.presenatation.auth
+package com.yeshuwahane.d4c.presenatation.features.auth
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -55,8 +55,10 @@ class LoginViewModel @Inject constructor(
                             refreshToken = it.refreshToken,
                             isExistingUser = it.isExistingUser
                         )
+                        println("✅ LoginViewModel - Token saved, navigating to product screen")
                         navigateToProductScreen = true
                     }
+
                 } ?: run {
                     errorMessage = result.error?.toUserFriendlyMessage()
 

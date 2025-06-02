@@ -1,6 +1,5 @@
-package com.yeshuwahane.d4c.ui.theme
+package com.yeshuwahane.d4c.presenatation.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

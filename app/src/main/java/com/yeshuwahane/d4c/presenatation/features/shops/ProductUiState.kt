@@ -1,4 +1,4 @@
-package com.yeshuwahane.d4c.presenatation.shops
+package com.yeshuwahane.d4c.presenatation.features.shops
 
 import com.yeshuwahane.d4c.data.utils.DataResource
 
