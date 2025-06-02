@@ -3,6 +3,7 @@ package com.yeshuwahane.d4c.presenatation.features.tickets
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -21,10 +22,13 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -45,6 +49,7 @@ import java.io.File
 
 
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TicketScreen(
@@ -55,7 +60,7 @@ fun TicketScreen(
     val ticketState by viewModel.ticketState.collectAsState()
     val focusManager = LocalFocusManager.current
 
-    var ticketType by remember { mutableStateOf("67ab787870baa5efe5404d63") } // pre-filled
+    var ticketType by remember { mutableStateOf("67ab787870baa5efe5404d63") }
     var message by remember { mutableStateOf("") }
     var imageUri by remember { mutableStateOf<Uri?>(null) }
 
@@ -79,19 +84,25 @@ fun TicketScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Create Ticket") },
+                title = { Text("Create Ticket", color = Color.White) },
                 navigationIcon = {
                     IconButton(onClick = onBackPressed) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = Color.White)
                     }
-                }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color(0xff323030),
+                    titleContentColor = Color.White,
+                    navigationIconContentColor = Color.White
+                )
             )
-        }
+        },
+        containerColor = Color(0xff323030) // Dark background for Scaffold
     ) { paddingValues ->
-        // 🔹 This Box detects outside taps to clear focus
         Box(
             modifier = Modifier
                 .fillMaxSize()
+                .background(Color(0xff323030))
                 .clickable(
                     indication = null,
                     interactionSource = remember { MutableInteractionSource() }
@@ -109,23 +120,35 @@ fun TicketScreen(
                 OutlinedTextField(
                     value = ticketType,
                     onValueChange = { ticketType = it },
-                    label = { Text("Ticket Type") },
-                    modifier = Modifier.fillMaxWidth()
+                    label = { Text("Ticket Type", color = Color.White) },
+                    modifier = Modifier.fillMaxWidth(),
+                    textStyle = LocalTextStyle.current.copy(color = Color.White),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = Color.White,
+                        unfocusedBorderColor = Color.Gray,
+                        cursorColor = Color.White
+                    )
                 )
 
                 OutlinedTextField(
                     value = message,
                     onValueChange = { message = it },
-                    label = { Text("Message") },
+                    label = { Text("Message", color = Color.White) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(150.dp),
                     maxLines = 5,
+                    textStyle = LocalTextStyle.current.copy(color = Color.White),
                     keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
                     keyboardActions = KeyboardActions(
                         onDone = {
                             focusManager.clearFocus()
                         }
+                    ),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = Color.White,
+                        unfocusedBorderColor = Color.Gray,
+                        cursorColor = Color.White
                     )
                 )
 
@@ -137,7 +160,7 @@ fun TicketScreen(
                     Text(
                         text = "Image Selected: ${it.lastPathSegment}",
                         fontSize = 12.sp,
-                        color = Color.Gray
+                        color = Color.LightGray
                     )
                 }
 

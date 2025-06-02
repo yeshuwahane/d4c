@@ -108,7 +108,7 @@ fun SplashScreen(
     val jwtState by viewModel.jwtFlow.collectAsState()
     var hasNavigated by remember { mutableStateOf(false) }
 
-    // Animate alpha for subtle pulsing
+
     val alphaAnim = rememberInfiniteTransition().animateFloat(
         initialValue = 0.5f,
         targetValue = 1f,
